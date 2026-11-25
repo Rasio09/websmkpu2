@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ujian SMK Putera Utama Kepung</title>
+<style>
+:root{--bg:#0b1020;--card:rgba(255,255,255,.06);--line:rgba(255,255,255,.14);--text:#f3efe6;--muted:#a9b0c6;--gold:#d4af6a;--gold2:#f1d9a0;--teal:#5fd0c5;--danger:#ff7a7a;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%}
+body{background:radial-gradient(1200px 800px at 80% -10%,#1d2750 0%,transparent 60%),radial-gradient(900px 700px at -10% 110%,#2a1b3d 0%,transparent 60%),var(--bg);color:var(--text);font-family:"Poppins","Segoe UI",system-ui,sans-serif;overflow-x:hidden}
+.orb{position:fixed;border-radius:50%;filter:blur(70px);opacity:.35;z-index:0;animation:float 14s ease-in-out infinite}
+.o1{width:320px;height:320px;background:#d4af6a;top:-80px;left:-60px}
+.o2{width:380px;height:380px;background:#4a6cf7;bottom:-120px;right:-80px;animation-delay:-5s}
+.o3{width:240px;height:240px;background:#5fd0c5;top:45%;left:60%;animation-delay:-9s;opacity:.2}
+@keyframes float{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(40px,-50px) scale(1.15)}}
+.wrap{position:relative;z-index:1;max-width:920px;margin:0 auto;padding:28px 18px 60px}
+header{text-align:center;margin-bottom:26px;animation:rise .8s both}
+.logo{width:76px;height:76px;margin:0 auto 12px;border-radius:22px;display:grid;place-items:center;font:700 30px Georgia,serif;color:#1a1405;background:linear-gradient(135deg,var(--gold2),var(--gold));box-shadow:0 10px 40px rgba(212,175,106,.4);animation:pulse 3s ease-in-out infinite}
+@keyframes pulse{50%{box-shadow:0 10px 60px rgba(212,175,106,.7);transform:translateY(-3px)}}
+h1{font:600 clamp(24px,5vw,38px) Georgia,"Times New Roman",serif;margin:0;letter-spacing:.5px}
+h1 span{background:linear-gradient(90deg,var(--gold2),var(--gold));-webkit-background-clip:text;background-clip:text;color:transparent}
+.sub{color:var(--muted);font-size:14px;margin-top:6px;letter-spacing:2px;text-transform:uppercase}
+.card{background:var(--card);border:1px solid var(--line);border-radius:24px;padding:28px;backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);box-shadow:0 20px 60px rgba(0,0,0,.35)}
+.view{display:none}.view.on{display:block;animation:rise .6s both}
+@keyframes rise{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+.choose{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
+.big{cursor:pointer;border:1px solid var(--line);background:linear-gradient(160deg,rgba(255,255,255,.09),rgba(255,255,255,.02));color:var(--text);border-radius:22px;padding:34px 20px;text-align:center;font:inherit;transition:.35s;position:relative;overflow:hidden}
+.big:hover{transform:translateY(-6px);border-color:var(--gold);box-shadow:0 18px 40px rgba(212,175,106,.22)}
+.big .ic{font-size:44px;display:block;margin-bottom:10px;transition:.35s}.big:hover .ic{transform:scale(1.2) rotate(-6deg)}
+.big b{font:600 20px Georgia,serif;display:block}.big small{color:var(--muted)}
+h2{font:600 24px Georgia,serif;margin:0 0 6px}
+p.d{color:var(--muted);margin:0 0 20px;font-size:14px;line-height:1.6}
+label{display:block;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin:14px 0 6px}
+input,select{width:100%;padding:14px 16px;border-radius:14px;border:1px solid var(--line);background:rgba(0,0,0,.28);color:var(--text);font:inherit;outline:0;transition:.25s}
+input:focus,select:focus{border-color:var(--gold);box-shadow:0 0 0 4px rgba(212,175,106,.15)}
+option{color:#111}
+.tokenin{text-align:center;font:700 28px "Courier New",monospace;letter-spacing:8px;text-transform:uppercase}
+.btn{cursor:pointer;border:0;border-radius:14px;padding:14px 22px;font:600 15px inherit;font-family:inherit;color:#1a1405;background:linear-gradient(135deg,var(--gold2),var(--gold));transition:.3s;box-shadow:0 8px 24px rgba(212,175,106,.3)}
+.btn:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(212,175,106,.5)}
+.btn.ghost{background:transparent;color:var(--text);border:1px solid var(--line);box-shadow:none}
+.btn.ghost:hover{border-color:var(--gold)}
+.btn.full{width:100%;margin-top:20px}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center;justify-content:space-between;margin-bottom:18px}
+.msg{min-height:20px;margin-top:12px;font-size:14px;text-align:center}.err{color:var(--danger)}.ok{color:var(--teal)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:12px}
+.date{cursor:pointer;border:1px solid var(--line);background:rgba(255,255,255,.05);color:var(--text);padding:16px;border-radius:16px;font:inherit;text-align:left;transition:.3s}
+.date:hover{border-color:var(--gold);transform:translateY(-3px);background:rgba(212,175,106,.1)}
+.date b{display:block;font:600 18px Georgia,serif}.date small{color:var(--muted)}
+.date.susulan b::after{content:" · Susulan";font:12px sans-serif;color:var(--teal)}
+.tokenbox{margin-top:20px;text-align:center;padding:24px;border-radius:20px;border:1px dashed var(--gold);background:rgba(212,175,106,.07);animation:rise .5s both}
+.tok{font:700 clamp(34px,9vw,54px) "Courier New",monospace;letter-spacing:10px;color:var(--gold2);text-shadow:0 0 24px rgba(212,175,106,.5)}
+.bar{height:6px;border-radius:6px;background:rgba(255,255,255,.1);margin:14px auto 6px;max-width:360px;overflow:hidden}
+.bar i{display:block;height:100%;background:linear-gradient(90deg,var(--teal),var(--gold));transition:width 1s linear}
+.kelas{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px}
+.kc{border:1px solid var(--line);border-radius:20px;padding:22px;background:rgba(255,255,255,.04);transition:.3s}
+.kc:hover{border-color:var(--gold);transform:translateY(-4px)}
+.kc h3{font:700 36px Georgia,serif;margin:0 0 12px;color:var(--gold2)}
+.kc a{display:block;text-decoration:none;text-align:center;margin-top:10px}
+.tabs{display:flex;gap:8px;margin-bottom:18px;flex-wrap:wrap}
+.tab{cursor:pointer;padding:10px 18px;border-radius:999px;border:1px solid var(--line);background:none;color:var(--muted);font:inherit}
+.tab.on{background:var(--gold);color:#1a1405;border-color:var(--gold)}
+.pane{display:none}.pane.on{display:block;animation:rise .4s both}
+.lkb{border:1px solid var(--line);border-radius:18px;padding:16px;margin-bottom:14px;background:rgba(255,255,255,.03)}
+.lkb>span{display:block;font:700 20px Georgia,serif;color:var(--gold2);margin-bottom:10px}
+.lkr{display:grid;grid-template-columns:1fr 1.6fr;gap:10px;margin-bottom:10px}
+@media(max-width:600px){.lkr{grid-template-columns:1fr}.card{padding:20px}}
+footer{text-align:center;color:var(--muted);font-size:12px;margin-top:28px}
+.toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom,0px));transform:translate(-50%,40px);background:#1c2447;border:1px solid var(--gold);padding:12px 20px;border-radius:14px;opacity:0;transition:.4s;z-index:9}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+</style>
+</head>
+<body>
+<div class="orb o1"></div><div class="orb o2"></div><div class="orb o3"></div>
+<div class="wrap">
+<header>
+  <div class="logo">PU</div>
+  <h1>Ujian <span>SMK Putera Utama</span> Kepung</h1>
+  <div class="sub">Portal Ujian Online</div>
+</header>
+
+<!-- BERANDA -->
+<section id="home" class="view on"><div class="card">
+  <div class="choose">
+    <button class="big" onclick="go('user')"><span class="ic">🎓</span><b>Masuk User</b><small>Peserta ujian (siswa)</small></button>
+    <button class="big" onclick="go('adminLogin')"><span class="ic">🛡️</span><b>Masuk Admin</b><small>Kelola token &amp; link soal</small></button>
+  </div>
+</div></section>
+
+<!-- USER: INPUT TOKEN -->
+<section id="user" class="view"><div class="card">
+  <h2>Masukkan Token Ujian</h2>
+  <p class="d">Token diberikan oleh pengawas/admin dan hanya berlaku 5 menit sejak dibuat.</p>
+  <label>Token</label>
+  <input id="tokenIn" class="tokenin" maxlength="6" placeholder="••••••" autocomplete="off">
+  <div class="msg" id="userMsg"></div>
+  <button class="btn full" onclick="checkToken()">Masuk Ujian</button>
+  <button class="btn ghost full" onclick="go('home')">← Kembali</button>
+</div></section>
+
+<!-- USER: PILIH KELAS -->
+<section id="kelas" class="view"><div class="card">
+  <div class="row"><div><h2>Pilih Kelas</h2><p class="d" id="kelasInfo" style="margin:0"></p></div><button class="btn ghost" onclick="go('home')">Keluar</button></div>
+  <div class="kelas" id="kelasGrid"></div>
+</div></section>
+
+<!-- USER: PILIH SOAL -->
+<section id="soal" class="view"><div class="card">
+  <div class="row"><div><h2 id="soalTitle">Pilih Soal</h2><p class="d" id="soalInfo" style="margin:0"></p></div><button class="btn ghost" onclick="go('kelas')">← Pilih Kelas</button></div>
+  <div class="kelas" id="soalGrid"></div>
+</div></section>
+
+<!-- ADMIN LOGIN -->
+<section id="adminLogin" class="view"><div class="card">
+  <h2>Login Admin</h2>
+  <p class="d">Masukkan username dan password admin.</p>
+  <label>Username</label><input id="au" autocomplete="off">
+  <label>Password</label><input id="ap" type="password" onkeydown="if(event.key==='Enter')loginAdmin()">
+  <div class="msg" id="adminMsg"></div>
+  <button class="btn full" onclick="loginAdmin()">Login</button>
+  <button class="btn ghost full" onclick="go('home')">← Kembali</button>
+</div></section>
+
+<!-- ADMIN PANEL -->
+<section id="admin" class="view"><div class="card">
+  <div class="row"><h2 style="margin:0">Panel Admin</h2><button class="btn ghost" onclick="go('home')">Logout</button></div>
+  <div class="tabs"><button class="tab on" data-p="pTok">🔑 Token Ujian</button><button class="tab" data-p="pLink">🔗 Link Soal</button></div>
+
+  <div id="pTok" class="pane on">
+    <p class="d">Klik tanggal untuk membuat token baru. Token berlaku 5 menit; klik lagi untuk generate ulang.</p>
+    <div class="grid" id="dateGrid"></div>
+    <div id="tokenBox"></div>
+  </div>
+
+  <div id="pLink" class="pane">
+    <p class="d">Isi judul dan link soal per tanggal &amp; kelas. Tersimpan otomatis di browser ini. Default dapat diubah permanen di bagian <b>KONFIGURASI LINK</b> dalam kode.</p>
+    <label>Tanggal</label><select id="linkDate"></select>
+    <div id="linkForm" style="margin-top:16px"></div>
+    <div class="msg ok" id="saveStat">Judul &amp; link tersimpan otomatis saat diketik</div>
+    <button class="btn ghost full" onclick="resetLinks()">Reset ke Default</button>
+  </div>
+</div></section>
+<footer>© 2026 SMK Putera Utama Kepung</footer>
+</div>
+<div class="toast" id="toast"></div>
+
+<script>
+/* ============================================================
+   KONFIGURASI LINK  (EDIT MANUAL DI SINI)
+   Setiap tanggal punya kelas X, XI, XII; masing-masing 2 link soal.
+   Ganti "#" dengan link soal (mis. Google Form), atau pakai judul:
+   {judul:"Soal Matematika", url:"https://..."}
+   Catatan: link yang sudah diisi lewat Panel Admin tersimpan otomatis & menimpa default ini sampai di-Reset.
+   ============================================================ */
+const DATES = ["2 Desember","3 Desember","4 Desember","7 Desember","8 Desember","9 Desember","10 Desember (Susulan)"];
+const LINKS = {
+  "2 Desember":  { X:["#","#"], XI:["#","#"], XII:["#","#"] },
+  "3 Desember":  { X:["#","#"], XI:["#","#"], XII:["#","#"] },
+  "4 Desember":  { X:["#","#"], XI:["#","#"], XII:["#","#"] },
+  "7 Desember":  { X:["#","#"], XI:["#","#"], XII:["#","#"] },
+  "8 Desember":  { X:["#","#"], XI:["#","#"], XII:["#","#"] },
+  "9 Desember":  { X:["#","#"], XI:["#","#"], XII:["#","#"] },
+  "10 Desember (Susulan)": { X:["#","#"], XI:["#","#"], XII:["#","#"] }
+};
+const ADMIN_USER = "ADMIN", ADMIN_PASS = "ADMIN123";
+const TOKEN_MS = 5*60*1000;
+/* ============================================================ */
+
+const $ = id => document.getElementById(id);
+const KEYS = ["X","XI","XII"];
+const mem = {};
+function store(k,v){ try{ if(v===undefined){const r=localStorage.getItem(k);return r?JSON.parse(r):mem[k]||null} localStorage.setItem(k,JSON.stringify(v)) }catch(e){ if(v===undefined) return mem[k]||null; mem[k]=v } }
+function toast(t){ const e=$("toast"); e.textContent=t; e.classList.add("on"); setTimeout(()=>e.classList.remove("on"),2200) }
+function go(id){
+  document.querySelectorAll(".view").forEach(v=>v.classList.remove("on"));
+  $(id).classList.add("on"); window.scrollTo({top:0,behavior:"smooth"});
+  ["userMsg","adminMsg"].forEach(m=>$(m).textContent="");
+  if(id==="home"){ $("tokenIn").value=""; $("au").value=""; $("ap").value=""; }
+}
+function getLinks(){ return store("links") || LINKS }
+const norm=x=>typeof x==="string"?{judul:"",url:x||"#"}:{judul:(x&&x.judul)||"",url:(x&&x.url)||"#"};
+function getSoal(d,k){ const a=((getLinks()[d]||{})[k])||[]; return [norm(a[0]),norm(a[1])] }
+const esc=s=>String(s).replace(/&/g,"&amp;").replace(/"/g,"&quot;").replace(/</g,"&lt;");
+let curDate="";
+
+/* ---- TOKEN ---- */
+function makeToken(){ const c="ABCDEFGHJKLMNPQRSTUVWXYZ23456789"; let t=""; const a=new Uint32Array(6); crypto.getRandomValues(a); a.forEach(n=>t+=c[n%c.length]); return t }
+let timer=null;
+function genToken(date){
+  const tokens = store("tokens") || {};
+  tokens[date] = { token:makeToken(), exp:Date.now()+TOKEN_MS };
+  store("tokens",tokens); showToken(date);
+}
+function showToken(date){
+  clearInterval(timer);
+  const t=(store("tokens")||{})[date]; if(!t) return;
+  $("tokenBox").innerHTML=`<div class="tokenbox"><div class="d" style="color:var(--muted)">Token untuk ${date}</div><div class="tok">${t.token}</div><div class="bar"><i id="bf" style="width:100%"></i></div><div id="cd" class="d"></div><button class="btn ghost" onclick="copyTok('${t.token}')">Salin Token</button></div>`;
+  const tick=()=>{ const left=t.exp-Date.now();
+    if(left<=0){ clearInterval(timer); $("tokenBox").innerHTML=`<div class="tokenbox"><div class="tok" style="color:var(--danger);font-size:26px;letter-spacing:2px">Token kedaluwarsa</div><p class="d">Klik tanggal lagi untuk generate token baru.</p></div>`; return }
+    const m=Math.floor(left/60000), s=Math.floor(left%60000/1000);
+    $("cd").textContent=`Berlaku ${m}:${String(s).padStart(2,"0")} lagi`; $("bf").style.width=(left/TOKEN_MS*100)+"%";
+  };
+  tick(); timer=setInterval(tick,1000);
+}
+function copyTok(t){ try{navigator.clipboard.writeText(t);toast("Token disalin")}catch(e){toast("Salin manual")} }
+
+function checkToken(){
+  const v=$("tokenIn").value.trim().toUpperCase(), msg=$("userMsg"), tokens=store("tokens")||{};
+  if(!v){ msg.className="msg err"; msg.textContent="Token wajib diisi."; return }
+  const hit=Object.entries(tokens).find(([d,t])=>t.token===v);
+  if(!hit){ msg.className="msg err"; msg.textContent="Token tidak ditemukan."; return }
+  if(hit[1].exp<Date.now()){ msg.className="msg err"; msg.textContent="Token sudah kedaluwarsa. Minta token baru ke admin."; return }
+  msg.className="msg ok"; msg.textContent="Token valid ✓";
+  setTimeout(()=>openKelas(hit[0]),500);
+}
+
+/* ---- KELAS ---- */
+function openKelas(date){
+  curDate=date;
+  $("kelasInfo").textContent="Ujian tanggal "+date+" · pilih kelas Anda";
+  $("kelasGrid").innerHTML=KEYS.map(k=>`<button class="big" onclick="pickKelas('${k}')"><span class="ic">🏫</span><b>Kelas ${k}</b><small>Ketuk untuk melihat soal</small></button>`).join("");
+  go("kelas");
+}
+function pickKelas(k){
+  const s=getSoal(curDate,k);
+  $("soalTitle").textContent="Soal Kelas "+k;
+  $("soalInfo").textContent="Ujian tanggal "+curDate;
+  $("soalGrid").innerHTML=s.map((x,i)=>{ const empty=!x.url||x.url==="#";
+    return `<div class="kc"><h3 style="font-size:22px">${esc(x.judul||"Soal "+(i+1))}</h3><a class="btn" href="${esc(x.url)}" target="_blank" rel="noopener" ${empty?'onclick="toast(\'Link soal belum diatur admin\');return false"':''}>📝 Buka Soal</a></div>`}).join("");
+  go("soal");
+}
+
+/* ---- ADMIN ---- */
+function loginAdmin(){
+  const m=$("adminMsg");
+  if($("au").value.trim().toUpperCase()===ADMIN_USER && $("ap").value===ADMIN_PASS){ initAdmin(); go("admin") }
+  else{ m.className="msg err"; m.textContent="Username atau password salah." }
+}
+function initAdmin(){
+  $("dateGrid").innerHTML=DATES.map(d=>{ const s=d.includes("Susulan"); const n=d.replace(" (Susulan)","");
+    return `<button class="date ${s?'susulan':''}" onclick="genToken('${d}')"><b>${n}</b><small>Generate token</small></button>`}).join("");
+  $("tokenBox").innerHTML="";
+  $("linkDate").innerHTML=DATES.map(d=>`<option>${d}</option>`).join("");
+  renderLinkForm();
+}
+document.querySelectorAll(".tab").forEach(b=>b.onclick=()=>{
+  document.querySelectorAll(".tab").forEach(x=>x.classList.remove("on")); b.classList.add("on");
+  document.querySelectorAll(".pane").forEach(p=>p.classList.remove("on")); $(b.dataset.p).classList.add("on");
+});
+$("linkDate").onchange=renderLinkForm;
+function renderLinkForm(){
+  const d=$("linkDate").value;
+  $("linkForm").innerHTML=KEYS.map(k=>{ const s=getSoal(d,k);
+    return `<div class="lkb"><span>Kelas ${k}</span>`+[0,1].map(i=>`<div class="lkr"><input data-k="${k}" data-i="${i}" data-f="judul" placeholder="Judul Soal ${i+1}" value="${esc(s[i].judul)}"><input data-k="${k}" data-i="${i}" data-f="url" placeholder="Link Soal ${i+1} (https://...)" value="${s[i].url==="#"?"":esc(s[i].url)}"></div>`).join("")+`</div>`}).join("");
+  $("linkForm").querySelectorAll("input").forEach(i=>i.oninput=autoSave);
+}
+function autoSave(){
+  const d=$("linkDate").value, all=JSON.parse(JSON.stringify(getLinks())); all[d]=all[d]||{};
+  const g=(k,i,f)=>document.querySelector(`#linkForm input[data-k="${k}"][data-i="${i}"][data-f="${f}"]`).value.trim();
+  KEYS.forEach(k=>{ all[d][k]=[0,1].map(i=>({judul:g(k,i,"judul"),url:g(k,i,"url")||"#"})) });
+  store("links",all); $("saveStat").textContent="✓ Tersimpan otomatis";
+}
+let rs=false;
+function resetLinks(){
+  const b=event.target;
+  if(!rs){ rs=true; b.textContent="Klik lagi untuk konfirmasi reset"; setTimeout(()=>{rs=false;b.textContent="Reset ke Default"},3500); return }
+  rs=false; b.textContent="Reset ke Default";
+  store("links",JSON.parse(JSON.stringify(LINKS))); renderLinkForm(); toast("Semua judul & link direset");
+}
+</script>
+</body>
+</html>
